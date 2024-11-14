@@ -1,0 +1,89 @@
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
+
+.card {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 10px 10px 19px -14px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.card:not(:hover) {
+  transform: scale(1);
+  transition: all 0.5s;
+}
+
+.bi-trash-fill:hover, .bi-chat-fill:hover {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  perspective: 1000px;
+}
+
+.bi-pencil-fill:hover {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  perspective: 1000px;
+}
+
+.bi-suit-heart-fill:active, .bi-hand-thumbs-down-fill:active {
+  transform: scale(1.6);
+}
+
+.bi-suit-heart-fill:not(:active), .bi-hand-thumbs-down-fill:not(:active) {
+  transform: scale(1);
+  transition: all 0.5s;
+}
+
+.ribbon {
+  --f: 10px; /* control the folded part*/
+  --r: 15px; /* control the ribbon shape */
+  --t: 10px; /* the top offset */
+  
+  position: absolute;
+  inset: var(--t) calc(-1*var(--f)) auto auto;
+  padding: 0 10px var(--f) calc(10px + var(--r));
+  clip-path: 
+    polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%,
+      calc(100% - var(--f)) calc(100% - var(--f)),0 calc(100% - var(--f)),
+      var(--r) calc(50% - var(--f)/2));
+  background: #f91e52;
+  color: black;
+  box-shadow: 0 calc(-1*var(--f)) 0 inset #0005;
+  // font-family:Verdana, Geneva, Tahoma, sans-serif;
+  // letter-spacing: 1px;
+}
+
+.sortTag {
+  box-shadow: inset 0px 0px 99px -61px rgba(0,0,0,0.75);
+  background-color: #f91e52;
+}
+
+.cancel, .reset {
+  cursor: pointer;
+}

@@ -1,0 +1,8 @@
+<app-navigation></app-navigation>
+<div
+  class="container"
+  [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''"
+>
+  <router-outlet #outlet="outlet"></router-outlet>
+  <app-footer #footer></app-footer>
+</div>
